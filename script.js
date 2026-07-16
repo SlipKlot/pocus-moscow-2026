@@ -41,9 +41,6 @@
   document.querySelectorAll('.js-open-cryo').forEach((button) => button.addEventListener('click', () => {
     openModal('Правила набора в закрытый поток CRYO TRAUMA уточняются. В группе будет только 10 участников.');
   }));
-  document.querySelectorAll('.js-open-course').forEach((button) => button.addEventListener('click', () => {
-    openModal('Для практического курса 12–13 декабря готовится отдельный сайт и отдельная регистрация.');
-  }));
   document.querySelectorAll('.js-close-modal').forEach((button) => button.addEventListener('click', closeModal));
   document.addEventListener('keydown', (event) => {
     if (event.key === 'Escape' && modal && !modal.hidden) closeModal();
