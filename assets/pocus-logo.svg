@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1100" fill="none">
+  <title>POCUS.MOSCOW</title>
+  <g transform="translate(300 70)" stroke="#ffffff" stroke-width="18" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M186 288 231 137c5-17 18-25 38-23 102 9 194 86 220 184 10 37-2 67-35 84l-119 47c-19 7-37 2-50-13l-99-110Z"/>
+    <path d="M187 296c-30 50-66 91-102 136-22 27-31 51-23 73 9 27 35 43 62 42 25-1 43-14 62-31l34-30"/>
+    <path d="m77 526-34 42"/>
+    <path d="M426 38c48 34 94 71 129 116"/>
+    <path d="M365 106c42 30 79 64 104 105"/>
+  </g>
+  <text x="600" y="930" fill="#ffffff" font-family="Arial, Helvetica, sans-serif" font-size="126" font-weight="300" letter-spacing="3" text-anchor="middle" textLength="1050" lengthAdjust="spacingAndGlyphs">POCUS.MOSCOW</text>
+</svg>

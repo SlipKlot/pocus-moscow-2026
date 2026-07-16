@@ -1,8 +1,10 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
-  <g stroke="#f0d39d" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round">
-    <rect x="9.5" y="7.5" width="27" height="21" rx="7" transform="rotate(-16 23 18)"/>
-    <path d="M34 22c7 4 10 9 10 16"/>
-    <path d="M30.5 28c5 3.5 7.5 7.5 7.5 13"/>
-    <path d="M27 34c3 2.2 4.5 5 4.5 9"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600" fill="none">
+  <title>Знак POCUS.MOSCOW</title>
+  <g stroke="#f0d39d" stroke-width="18" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M186 288 231 137c5-17 18-25 38-23 102 9 194 86 220 184 10 37-2 67-35 84l-119 47c-19 7-37 2-50-13l-99-110Z"/>
+    <path d="M187 296c-30 50-66 91-102 136-22 27-31 51-23 73 9 27 35 43 62 42 25-1 43-14 62-31l34-30"/>
+    <path d="m77 526-34 42"/>
+    <path d="M426 38c48 34 94 71 129 116"/>
+    <path d="M365 106c42 30 79 64 104 105"/>
   </g>
 </svg>
