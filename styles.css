@@ -85,18 +85,20 @@ em { color: var(--gold-light); font-family: Georgia, "Times New Roman", serif; f
 .date-monument span:first-child { display: block; font-size: 210px; letter-spacing: -.1em; }
 .date-monument span:last-child { display: block; font-size: 82px; letter-spacing: .22em; }
 .ticket-card { position: relative; z-index: 2; width: min(520px, 90%); aspect-ratio: .78; border: 1px solid rgba(240, 211, 157, .55); border-radius: 30px; overflow: hidden; background: #06101d; box-shadow: 0 40px 100px rgba(0,0,0,.5); transform: rotate(2deg); }
-.ticket-image { position: absolute; inset: 0; background-image: linear-gradient(180deg, rgba(3,10,19,.15), rgba(3,10,19,.83) 72%), url("assets/event-ticket.jpg"); background-size: auto 100%; background-position: 62% center; filter: saturate(.8) contrast(1.12); }
-.tower-glow { position: absolute; z-index: 1; inset: 0; width: 100%; height: 100%; pointer-events: none; mix-blend-mode: screen; }
+.ticket-image { position: absolute; z-index: 0; inset: 0; background-image: linear-gradient(180deg, rgba(3,10,19,.15), rgba(3,10,19,.83) 72%), url("assets/event-ticket.jpg"); background-size: auto 100%; background-position: 62% center; filter: saturate(.8) contrast(1.12); }
+.ticket-video { position: absolute; z-index: 0; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center; opacity: .82; filter: saturate(.82) contrast(1.12) brightness(.74); }
+.ticket-card:after { content: ""; position: absolute; z-index: 1; inset: 0; pointer-events: none; background: linear-gradient(180deg, rgba(3,10,19,.12), rgba(3,10,19,.66) 72%), linear-gradient(90deg, rgba(5,14,26,.48), transparent 74%); }
+.tower-glow { position: absolute; z-index: 2; inset: 0; width: 100%; height: 100%; pointer-events: none; mix-blend-mode: screen; }
 .tower-glow-fill { opacity: 0; transform-origin: 50px 70px; animation: tower-electric-fill 8s ease-in-out infinite; }
 .tower-glow-lines { fill: none; stroke: #bfefff; stroke-width: .65; stroke-linecap: round; stroke-linejoin: round; opacity: 0; animation: tower-electric-lines 8s ease-in-out infinite; }
 .tower-glow-lines path { stroke-dasharray: 1; stroke-dashoffset: 1; animation: tower-electric-trace 8s ease-in-out infinite; }
 .tower-star { fill: #fff; stroke: #dff8ff; stroke-width: .45; opacity: 0; transform-box: fill-box; transform-origin: center; animation: tower-star-flare 8s ease-out infinite; }
 .tower-star-side { animation-delay: .45s; }
-.ticket-overlay { position: absolute; z-index: 2; inset: 0; padding: 45px 38px 150px; display: flex; flex-direction: column; justify-content: flex-end; background: linear-gradient(90deg, rgba(5,14,26,.85), transparent 72%); }
+.ticket-overlay { position: absolute; z-index: 3; inset: 0; padding: 45px 38px 150px; display: flex; flex-direction: column; justify-content: flex-end; background: linear-gradient(90deg, rgba(5,14,26,.85), transparent 72%); }
 .ticket-overlay p { color: var(--gold-light); text-transform: uppercase; letter-spacing: .16em; font-size: 10px; }
 .ticket-overlay strong { font-size: clamp(34px, 4vw, 54px); letter-spacing: .04em; }
 .ticket-overlay span { color: var(--muted); }
-.ticket-stub { position: absolute; z-index: 3; left: 0; right: 0; bottom: 0; min-height: 120px; padding: 25px 38px; border-top: 1px dashed rgba(240, 211, 157, .6); background: rgba(5,14,26,.92); display: grid; grid-template-columns: 1fr auto; align-items: center; }
+.ticket-stub { position: absolute; z-index: 4; left: 0; right: 0; bottom: 0; min-height: 120px; padding: 25px 38px; border-top: 1px dashed rgba(240, 211, 157, .6); background: rgba(5,14,26,.92); display: grid; grid-template-columns: 1fr auto; align-items: center; }
 .ticket-stub:before, .ticket-stub:after { content: ""; position: absolute; top: -10px; width: 20px; height: 20px; background: var(--ink); border-radius: 50%; }
 .ticket-stub:before { left: -10px; }.ticket-stub:after { right: -10px; }
 .ticket-stub small { color: var(--gold-light); letter-spacing: .16em; }
@@ -342,4 +344,5 @@ body.modal-open { overflow: hidden; }
   .tower-glow-fill, .tower-glow-lines { animation: none !important; opacity: .18; transform: none; }
   .tower-glow-lines path { animation: none !important; stroke-dashoffset: 0; }
   .tower-star { display: none; }
+  .ticket-video { display: none; }
 }
