@@ -39,28 +39,6 @@
     openModal('Мы подключаем безопасную оплату и выпуск именного электронного билета. Цена уже зафиксирована — 1 000 ₽.');
   }));
 
-  const speech = window.speechSynthesis;
-  let lastTicketCallout = 0;
-  const getRussianMaleVoice = () => {
-    if (!speech) return null;
-    const russianVoices = speech.getVoices().filter((voice) => voice.lang.toLowerCase().startsWith('ru'));
-    return russianVoices.find((voice) => /pavel|alexander|yuri|dmitry|mikhail|maxim|male|муж/i.test(voice.name))
-      || russianVoices[0]
-      || null;
-  };
-  const speakTicketCallout = (event) => {
-    if (!speech || event.pointerType !== 'mouse' || Date.now() - lastTicketCallout < 4500) return;
-    lastTicketCallout = Date.now();
-    speech.cancel();
-    const utterance = new SpeechSynthesisUtterance('Покупай, не пожалеешь!');
-    utterance.lang = 'ru-RU';
-    utterance.voice = getRussianMaleVoice();
-    utterance.rate = .92;
-    utterance.pitch = .72;
-    utterance.volume = .9;
-    speech.speak(utterance);
-  };
-  document.querySelectorAll('.js-open-ticket').forEach((button) => button.addEventListener('pointerenter', speakTicketCallout));
   document.querySelectorAll('.js-open-cryo').forEach((button) => button.addEventListener('click', () => {
     openModal('Правила набора в закрытый поток CRYO TRAUMA уточняются. В группе будет только 10 участников.');
   }));

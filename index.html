@@ -91,32 +91,6 @@
           <video class="ticket-video" muted loop playsinline preload="metadata" poster="assets/event-ticket.jpg" aria-hidden="true" tabindex="-1">
             <source src="assets/moscow-tower-glow.mp4" type="video/mp4">
           </video>
-          <svg class="tower-glow" viewBox="0 0 100 128" preserveAspectRatio="none" aria-hidden="true">
-            <defs>
-              <linearGradient id="tower-electric-fill" x1="0" y1="1" x2="0.8" y2="0">
-                <stop offset="0" stop-color="#2d79ff" stop-opacity="0"></stop>
-                <stop offset="0.48" stop-color="#2d9cff" stop-opacity="0.48"></stop>
-                <stop offset="1" stop-color="#d9f7ff" stop-opacity="0.9"></stop>
-              </linearGradient>
-              <filter id="tower-electric-blur" x="-100%" y="-100%" width="300%" height="300%">
-                <feGaussianBlur stdDeviation="1.5" result="blur"></feGaussianBlur>
-                <feMerge><feMergeNode in="blur"></feMergeNode><feMergeNode in="SourceGraphic"></feMergeNode></feMerge>
-              </filter>
-            </defs>
-            <path class="tower-glow-fill" d="M50 18c-3 9-4 18-2 27 2 8 4 16 5 25 4 1 7 0 10-2-3-12-4-24-5-36-1-8-4-14-8-14Z" fill="url(#tower-electric-fill)"></path>
-            <g class="tower-glow-lines" filter="url(#tower-electric-blur)">
-              <path pathLength="1" d="M50 18c-3 9-4 18-2 27 2 8 4 16 5 25"></path>
-              <path pathLength="1" d="M50 18c4 1 7 6 8 14 1 12 2 24 5 36"></path>
-              <path pathLength="1" d="M53 70c4 1 7 0 10-2"></path>
-              <path pathLength="1" d="m49 29 8 2m-9 8 11 2m-10 8 11 1m-9 9 10-2m-8 10 9-3"></path>
-            </g>
-            <g class="tower-star tower-star-main" transform="translate(50 18)">
-              <path d="M-5 0H5M0-5V5"></path><circle r="1.2"></circle>
-            </g>
-            <g class="tower-star tower-star-side" transform="translate(76 20)">
-              <path d="M-3 0H3M0-3V3"></path><circle r="0.8"></circle>
-            </g>
-          </svg>
           <div class="ticket-overlay">
             <p>Международная конференция</p>
             <strong>11 · 12 · 2026</strong>
