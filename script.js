@@ -39,9 +39,6 @@
     openModal('Мы подключаем безопасную оплату и выпуск именного электронного билета. Цена уже зафиксирована — 1 000 ₽.');
   }));
 
-  document.querySelectorAll('.js-open-cryo').forEach((button) => button.addEventListener('click', () => {
-    openModal('Правила набора в закрытый поток CRYO TRAUMA уточняются. В группе будет только 10 участников.');
-  }));
   document.querySelectorAll('.js-close-modal').forEach((button) => button.addEventListener('click', closeModal));
   document.addEventListener('keydown', (event) => {
     if (event.key === 'Escape' && modal && !modal.hidden) closeModal();
