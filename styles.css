@@ -107,6 +107,13 @@ em { color: var(--gold-light); font-family: Georgia, "Times New Roman", serif; f
 .signal-grid strong { color: var(--gold-light); font-size: 27px; }
 .signal-grid span { color: var(--muted); font-size: 12px; }
 
+.venue-section { padding-block: 85px; }
+.venue-card { display: grid; grid-template-columns: .8fr 1.2fr; gap: clamp(40px, 7vw, 90px); align-items: center; padding: clamp(28px, 5vw, 60px); border: 1px solid var(--line); border-radius: var(--radius); background: rgba(255,255,255,.025); }
+.venue-logo-wrap { padding: clamp(24px, 4vw, 42px); border-radius: 22px; background: #fff; }
+.venue-logo-wrap img { width: 100%; height: auto; }
+.venue-copy h2 { font-size: clamp(42px, 5vw, 72px); }
+.venue-copy > p:not(.eyebrow) { margin: 24px 0 30px; color: var(--muted); font-size: 18px; }
+
 .section { position: relative; z-index: 1; padding-block: 130px; }
 .section-kicker { display: flex; align-items: center; gap: 15px; margin-bottom: 50px; }
 .section-kicker span { color: var(--gold); font-family: Georgia, serif; font-style: italic; }
@@ -177,6 +184,23 @@ em { color: var(--gold-light); font-family: Georgia, "Times New Roman", serif; f
 .course-register { white-space: nowrap; }
 .inline-link { color: var(--gold-light); text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 4px; }
 
+.contacts-section { padding-top: 100px; }
+.contacts-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; }
+.contact-card { min-width: 0; padding: clamp(30px, 5vw, 58px); border: 1px solid var(--line); border-radius: var(--radius); background: var(--ink-2); }
+.contact-card-light { background: var(--paper); color: var(--ink); }
+.contact-label { margin: 0 0 28px; color: var(--gold-light); text-transform: uppercase; letter-spacing: .16em; font-size: 11px; font-weight: 800; }
+.contact-card-light .contact-label { color: #8c6737; }
+.contact-card h2 { font-size: clamp(38px, 4.5vw, 62px); }
+.contact-card > p:not(.contact-label), .contact-card address { color: var(--muted); font-style: normal; }
+.contact-card-light > p:not(.contact-label), .contact-card-light address { color: #5c6674; }
+.contact-links { display: flex; flex-wrap: wrap; gap: 10px 20px; margin-top: 30px; }
+.contact-links a { color: var(--gold-light); text-decoration: underline; text-underline-offset: 4px; overflow-wrap: anywhere; }
+.contact-card-light .contact-links a { color: #365c89; }
+.seller-details { margin: 25px 0 0; }
+.seller-details div { display: grid; grid-template-columns: 90px 1fr; gap: 15px; padding: 10px 0; border-bottom: 1px solid rgba(7,17,31,.14); }
+.seller-details dt { color: #737b85; font-size: 12px; }
+.seller-details dd { margin: 0; font-weight: 750; }
+
 .faq-section { background: #081321; }
 .faq-grid { display: grid; grid-template-columns: .55fr 1fr; gap: 100px; }
 .faq { border-top: 1px solid var(--line); }
@@ -194,10 +218,13 @@ em { color: var(--gold-light); font-family: Georgia, "Times New Roman", serif; f
 .countdown span { color: var(--muted); font-size: 10px; text-transform: uppercase; letter-spacing: .12em; }
 
 .site-footer { position: relative; z-index: 1; padding-block: 70px; }
-.footer-grid { display: grid; grid-template-columns: 1fr 1fr auto; gap: 50px; align-items: center; }
+.footer-grid { display: grid; grid-template-columns: .8fr 1fr 1.4fr; gap: 45px; align-items: start; }
 .footer-grid p { margin: 0; }
 .footer-grid > div > span { color: var(--muted); font-size: 13px; }
-.footer-links { display: flex; gap: 20px; font-size: 13px; }
+.footer-links { display: flex; flex-wrap: wrap; gap: 10px 18px; font-size: 13px; }
+.footer-legal { grid-column: 1 / -1; display: grid; gap: 5px; padding-top: 30px; border-top: 1px solid var(--line); color: #8794a5; font-size: 12px; }
+.footer-legal strong { color: #c9d2dd; }
+.footer-legal a { text-decoration: underline; text-underline-offset: 3px; }
 .copyright { grid-column: 1 / -1; padding-top: 35px; border-top: 1px solid var(--line); color: #718095; font-size: 11px; }
 
 .modal[hidden] { display: none; }
@@ -207,7 +234,39 @@ em { color: var(--gold-light); font-family: Georgia, "Times New Roman", serif; f
 .modal-card h2 { font-size: clamp(42px, 6vw, 67px); }
 .modal-card > p:not(.eyebrow) { color: var(--muted); margin: 25px 0 32px; }
 .modal-close { position: absolute; right: 20px; top: 15px; width: 44px; height: 44px; border: 1px solid var(--line); border-radius: 50%; background: transparent; font-size: 28px; cursor: pointer; }
+.purchase-consent { display: grid; gap: 18px; }
+.consent-check { display: grid; grid-template-columns: 24px 1fr; gap: 13px; align-items: start; color: #d7dee7; cursor: pointer; }
+.consent-check input { width: 21px; height: 21px; margin: 2px 0 0; accent-color: var(--gold); }
+.consent-check a, .modal-legal-links a { color: var(--gold-light); text-decoration: underline; text-underline-offset: 3px; }
+.button:disabled { opacity: .42; cursor: not-allowed; transform: none; }
+.payment-status { margin: 0; color: var(--muted); font-size: 12px; text-align: center; }
+.modal-legal-links { margin: 22px 0 0 !important; font-size: 12px; }
 body.modal-open { overflow: hidden; }
+
+.legal-page { background: var(--paper); color: var(--ink); }
+.legal-page:before { display: none; }
+.legal-header { position: sticky; z-index: 10; top: 0; border-bottom: 1px solid rgba(7,17,31,.12); background: rgba(243,240,233,.94); backdrop-filter: blur(14px); }
+.legal-nav { min-height: 78px; display: flex; align-items: center; justify-content: space-between; gap: 25px; }
+.legal-page .brand { color: var(--ink); }
+.legal-page .brand-mark { background: var(--ink); }
+.legal-back { color: #49637e; font-size: 13px; font-weight: 750; }
+.legal-shell { max-width: 900px; padding-block: clamp(60px, 9vw, 115px); }
+.legal-shell > .eyebrow { color: #886331; }
+.legal-shell h1 { max-width: 850px; margin: 0; font-size: clamp(46px, 7vw, 84px); line-height: .96; letter-spacing: -.045em; text-transform: uppercase; }
+.legal-subtitle { margin: 18px 0 0; color: #66717f; font-family: Georgia, "Times New Roman", serif; font-size: clamp(22px, 3vw, 32px); font-style: italic; }
+.legal-shell section { padding-top: 52px; }
+.legal-shell section + section { margin-top: 45px; border-top: 1px solid rgba(7,17,31,.14); }
+.legal-shell h2 { margin: 0 0 24px; font-size: clamp(27px, 4vw, 40px); line-height: 1.08; letter-spacing: -.025em; }
+.legal-shell h3 { margin: 35px 0 16px; font-size: 20px; }
+.legal-shell p, .legal-shell li { color: #3f4a58; line-height: 1.72; }
+.legal-shell strong { color: var(--ink); }
+.legal-shell a { color: #315d90; text-decoration: underline; text-underline-offset: 3px; overflow-wrap: anywhere; }
+.legal-shell ul { padding-left: 24px; }
+.legal-requisites { padding: 42px !important; border: 1px solid rgba(7,17,31,.15) !important; border-radius: var(--radius); background: #fff; }
+.legal-requisites p { margin: 8px 0; }
+.legal-footer { padding-block: 35px; border-top: 1px solid rgba(7,17,31,.14); }
+.legal-footer .shell { display: flex; flex-wrap: wrap; gap: 15px 30px; }
+.legal-footer a { color: #49637e; font-size: 13px; text-decoration: underline; text-underline-offset: 3px; }
 
 .reveal { opacity: 1; transform: none; }
 .js .reveal { opacity: 0; transform: translateY(24px); transition: opacity .75s ease, transform .75s ease; }
@@ -224,7 +283,7 @@ body.modal-open { overflow: hidden; }
   .hero-copy { position: relative; z-index: 3; }
   .hero-art { min-height: 580px; }
   .ticket-card { width: min(500px, 86%); }
-  .about-grid, .audience-grid, .ticket-grid, .faq-grid { grid-template-columns: 1fr; gap: 55px; }
+  .about-grid, .audience-grid, .venue-card, .ticket-grid, .contacts-grid, .faq-grid { grid-template-columns: 1fr; gap: 55px; }
   .section-heading { grid-template-columns: 1fr; gap: 30px; }
   .ticket-price { border-right: 0; border-bottom: 1px solid rgba(7,17,31,.25); padding-bottom: 50px; }
   .continuation { grid-template-columns: 1fr; }
@@ -283,8 +342,19 @@ body.modal-open { overflow: hidden; }
   .countdown { width: 100%; justify-content: space-between; gap: 10px; }
   .countdown strong { font-size: 36px; }
   .footer-grid { grid-template-columns: 1fr; gap: 28px; }
+  .venue-section { padding-block: 55px; }
+  .venue-card { gap: 32px; }
+  .venue-copy .button { width: 100%; text-align: center; }
+  .contact-card { padding: 32px 24px; }
   .footer-links { flex-wrap: wrap; }
   .modal-card { padding: 45px 25px 32px; }
+  .legal-nav { min-height: 70px; }
+  .legal-nav .brand-wordmark { font-size: 14px; }
+  .legal-back { font-size: 12px; }
+  .legal-shell { padding-block: 55px; }
+  .legal-shell section { padding-top: 35px; }
+  .legal-shell section + section { margin-top: 30px; }
+  .legal-requisites { padding: 26px 22px !important; }
 }
 
 @media (prefers-reduced-motion: reduce) {

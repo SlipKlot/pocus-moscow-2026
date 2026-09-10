@@ -5,6 +5,10 @@
   const modal = document.querySelector('#status-modal');
   const modalCard = modal?.querySelector('.modal-card');
   const modalCopy = modal?.querySelector('[data-modal-copy]');
+  const purchaseForm = modal?.querySelector('[data-purchase-form]');
+  const offerConsent = modal?.querySelector('[data-offer-consent]');
+  const paymentButton = modal?.querySelector('[data-payment-button]');
+  const paymentStatus = modal?.querySelector('[data-payment-status]');
   let lastFocused = null;
 
   const closeMenu = () => {
@@ -23,6 +27,9 @@
     if (!modal) return;
     lastFocused = document.activeElement;
     if (copy && modalCopy) modalCopy.textContent = copy;
+    if (offerConsent) offerConsent.checked = false;
+    if (paymentButton) paymentButton.disabled = true;
+    if (paymentStatus) paymentStatus.textContent = 'Ссылка на оплату будет добавлена после подключения платёжной системы.';
     modal.hidden = false;
     document.body.classList.add('modal-open');
     requestAnimationFrame(() => modalCard?.focus());
@@ -38,6 +45,15 @@
   document.querySelectorAll('.js-open-ticket').forEach((button) => button.addEventListener('click', () => {
     openModal('Мы подключаем безопасную оплату и выпуск именного электронного билета. Цена уже зафиксирована — 1 000 ₽.');
   }));
+
+  offerConsent?.addEventListener('change', () => {
+    if (paymentButton) paymentButton.disabled = !offerConsent.checked;
+  });
+  purchaseForm?.addEventListener('submit', (event) => {
+    event.preventDefault();
+    if (!offerConsent?.checked) return;
+    if (paymentStatus) paymentStatus.textContent = 'Согласие принято. Ссылка на оплату будет добавлена после подключения платёжной системы.';
+  });
 
   document.querySelectorAll('.js-close-modal').forEach((button) => button.addEventListener('click', closeModal));
   document.addEventListener('keydown', (event) => {
