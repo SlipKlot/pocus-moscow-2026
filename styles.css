@@ -268,6 +268,9 @@ body.modal-open { overflow: hidden; }
 .legal-footer .shell { display: flex; flex-wrap: wrap; gap: 15px 30px; }
 .legal-footer a { color: #49637e; font-size: 13px; text-decoration: underline; text-underline-offset: 3px; }
 
+.online-ticket-section { border-top: 1px solid rgba(7,17,31,.25); }
+.ticket-choice { display: block; font-size: 14px; margin-bottom: 8px; }
+[data-ticket-select] { width: 100%; padding: 14px; margin-bottom: 20px; border: 1px solid #718096; border-radius: 10px; background: #07111f; color: #fff; font: inherit; }
 .reveal { opacity: 1; transform: none; }
 .js .reveal { opacity: 0; transform: translateY(24px); transition: opacity .75s ease, transform .75s ease; }
 .js .reveal.visible { opacity: 1; transform: none; }

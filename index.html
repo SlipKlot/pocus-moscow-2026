@@ -23,10 +23,11 @@
     "name": "Регионарная анестезия 2026: точность, безопасность, мастерство",
     "startDate": "2026-12-11T09:00:00+03:00",
     "endDate": "2026-12-11T18:00:00+03:00",
-    "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+    "eventAttendanceMode": "https://schema.org/MixedEventAttendanceMode",
     "eventStatus": "https://schema.org/EventScheduled",
     "location": {"@type": "Place", "name": "Клиника Фомина на Мичуринском проспекте", "address": {"@type": "PostalAddress", "streetAddress": "Мичуринский проспект, д. 15А", "addressLocality": "Москва", "addressCountry": "RU"}},
-    "offers": {"@type": "Offer", "price": "1000", "priceCurrency": "RUB", "availability": "https://schema.org/PreOrder"}
+    "maximumPhysicalAttendeeCapacity": 125,
+    "offers": [{"@type": "Offer", "name": "Очное участие", "price": "1000", "priceCurrency": "RUB", "url": "https://pocusmoscow.events/#ticket"}, {"@type": "Offer", "name": "Онлайн-доступ", "price": "500", "priceCurrency": "RUB", "url": "https://pocusmoscow.events/#online-ticket"}]
   }
   </script>
 </head>
@@ -70,12 +71,13 @@
         <div class="hero-meta" aria-label="Основные сведения">
           <div><span>Дата</span><strong>11.12.2026</strong></div>
           <div><span>Площадка</span><strong>Клиника Фомина</strong></div>
-          <div><span>Формат</span><strong>Очно</strong></div>
-          <div><span>Стоимость</span><strong>1 000 ₽</strong></div>
+          <div><span>Формат</span><strong>Очно / онлайн</strong></div>
+          <div><span>Время · МСК</span><strong>09:00–18:00</strong></div>
         </div>
 
         <div class="hero-actions">
-          <button class="button button-primary js-open-ticket" type="button">Купить билет — 1 000 ₽ <span>↗</span></button>
+          <button class="button button-primary js-open-ticket" type="button">Очно — 1 000 ₽ <span>↗</span></button>
+          <button class="button button-ghost js-open-ticket" data-ticket-type="online" type="button">Онлайн — 500 ₽ <span>↗</span></button>
           <a class="button button-ghost" href="#program">Смотреть программу</a>
         </div>
         <p class="micro-note">Оплата будет открыта после подключения платёжной системы.</p>
@@ -109,8 +111,8 @@
 
     <section class="signal-bar" aria-label="Параметры конференции">
       <div class="shell signal-grid">
-        <div><strong>200–300</strong><span>участников</span></div>
-        <div><strong>08:00–18:00</strong><span>единый рабочий день</span></div>
+        <div><strong>125</strong><span>очных участников</span></div>
+        <div><strong>09:00–18:00</strong><span>время проведения · МСК</span></div>
         <div><strong>3</strong><span>научных блока</span></div>
       </div>
     </section>
@@ -157,9 +159,9 @@
 
         <div class="agenda reveal">
           <details open>
-            <summary><time>08:00–10:50</time><span><small>Открытие</small>Начало научной программы конференции</span><i>+</i></summary>
+            <summary><time>09:00–10:50</time><span><small>Открытие</small>Начало научной программы конференции</span><i>+</i></summary>
             <div class="agenda-body">
-              <p><b>08:00</b> Регистрация, выставочная экспозиция и welcome coffee</p>
+              <p>Время начала регистрации очных участников будет объявлено дополнительно.</p>
               <p><b>09:00</b> Официальное открытие</p>
               <p><b>09:20</b> Ключевая международная лекция</p>
               <p><b>10:00</b> Открытая дискуссия: какие технологии меняют практику</p>
@@ -221,9 +223,9 @@
     <section class="section ticket-section" id="ticket">
       <div class="shell ticket-grid">
         <div class="ticket-price reveal">
-          <p>Билет на конференцию</p>
+          <p>Очное участие · 125 мест</p>
           <strong>1 000 <small>₽</small></strong>
-          <span>11 декабря 2026 · Москва</span>
+          <span>11 декабря 2026 · 09:00–18:00 МСК · Москва</span>
         </div>
         <div class="ticket-details reveal">
           <h2>Ваш день<br><em>точных решений</em></h2>
@@ -236,6 +238,27 @@
           </ul>
           <button class="button button-primary button-wide js-open-ticket" type="button">Купить билет — 1 000 ₽ <span>↗</span></button>
           <p class="micro-note">Продавец и исполнитель — ИП Андреев Юрий Васильевич. Ссылка на оплату будет добавлена после подключения платёжной системы.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section ticket-section online-ticket-section" id="online-ticket">
+      <div class="shell ticket-grid">
+        <div class="ticket-price reveal">
+          <p>Онлайн-доступ</p>
+          <strong>500 <small>₽</small></strong>
+          <span>11 декабря 2026 · 09:00–18:00 МСК</span>
+        </div>
+        <div class="ticket-details reveal">
+          <h2>Присоединяйтесь<br><em>онлайн</em></h2>
+          <ul>
+            <li>Онлайн-доступ к конференции 11 декабря</li>
+            <li>Участие дистанционно, без посещения площадки</li>
+            <li>Кадавер-курс 12–13 декабря оплачивается отдельно</li>
+          </ul>
+          <p>Платформа и порядок подключения будут опубликованы до открытия продаж онлайн-доступа.</p>
+          <button class="button button-primary button-wide js-open-ticket" data-ticket-type="online" type="button">Онлайн-доступ — 500 ₽ <span>↗</span></button>
+          <p class="micro-note">Продавец и исполнитель — ИП Андреев Юрий Васильевич. Перед оплатой необходимо принять условия публичной оферты.</p>
         </div>
       </div>
     </section>
@@ -291,8 +314,9 @@
       <div class="shell faq-grid">
         <div class="reveal"><div class="section-kicker"><span>05</span><p>Вопросы</p></div><h2>Перед<br><em>участием</em></h2></div>
         <div class="faq reveal">
-          <details><summary>Билет включает курс 12–13 декабря?<i>+</i></summary><p>Нет. Билет стоимостью 1 000 ₽ относится только к конференции 11 декабря. У кадавер-курса отдельная <a class="inline-link" href="https://novonexus.ru/dissection/92158/" target="_blank" rel="noopener noreferrer">регистрация на сайте NovoNexus</a>.</p></details>
-          <details><summary>Во сколько начинается конференция?<i>+</i></summary><p>Регистрация участников начнется в 08:00, открытие научной программы — в 09:00.</p></details>
+          <details><summary>Билет включает курс 12–13 декабря?<i>+</i></summary><p>Нет. Очный билет за 1 000 ₽ и онлайн-доступ за 500 ₽ относятся только к конференции 11 декабря. У кадавер-курса отдельная <a class="inline-link" href="https://novonexus.ru/dissection/92158/" target="_blank" rel="noopener noreferrer">регистрация на сайте NovoNexus</a>.</p></details>
+          <details><summary>Во сколько начинается конференция?<i>+</i></summary><p>Конференция проходит 11 декабря 2026 года с 09:00 до 18:00 по московскому времени. Время начала регистрации очных участников будет объявлено дополнительно.</p></details>
+          <details><summary>Можно участвовать онлайн?<i>+</i></summary><p>Да, стоимость онлайн-доступа — 500 ₽. Он не включает посещение площадки. Платформа и порядок подключения будут опубликованы до открытия продаж онлайн-доступа.</p></details>
           <details><summary>Как я получу билет?<i>+</i></summary><p>После подключения оплаты участник получит чек продавца и отдельный именной электронный билет с уникальным номером и QR-кодом.</p></details>
           <details><summary>Программа окончательная?<i>+</i></summary><p>Нет, сейчас опубликована предварительная структура дня. Темы и тайминг могут быть уточнены научным комитетом.</p></details>
         </div>
@@ -331,9 +355,14 @@
     <div class="modal-card" tabindex="-1">
       <button class="modal-close js-close-modal" type="button" aria-label="Закрыть">×</button>
       <p class="eyebrow"><span></span> Регистрация</p>
-      <h2 id="modal-title">Продажи откроются<br><em>в ближайшее время</em></h2>
+      <h2 id="modal-title">Участие в конференции</h2>
       <p data-modal-copy>Мы подключаем безопасную оплату и выпуск именного электронного билета. Цена уже зафиксирована — 1 000 ₽.</p>
       <form class="purchase-consent" data-purchase-form>
+        <label class="ticket-choice" for="ticket-type">Формат участия</label>
+        <select id="ticket-type" name="ticketType" data-ticket-select>
+          <option value="onsite">Очно — 1 000 ₽</option>
+          <option value="online">Онлайн-доступ — 500 ₽</option>
+        </select>
         <label class="consent-check">
           <input type="checkbox" data-offer-consent required>
           <span>Я согласен(-на) с условиями <a href="oferta.html" target="_blank" rel="noopener noreferrer">публичной оферты</a></span>
@@ -345,6 +374,7 @@
     </div>
   </div>
 
+  <script src="payment-config.js" defer></script>
   <script src="script.js" defer></script>
 </body>
 </html>

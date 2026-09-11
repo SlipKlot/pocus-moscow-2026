@@ -9,6 +9,28 @@
   const offerConsent = modal?.querySelector('[data-offer-consent]');
   const paymentButton = modal?.querySelector('[data-payment-button]');
   const paymentStatus = modal?.querySelector('[data-payment-status]');
+  const ticketSelect = modal?.querySelector('[data-ticket-select]');
+  const tickets = {
+    onsite: { price: '1 000 ₽', copy: 'Очное участие — 1 000 ₽. 11 декабря, 09:00–18:00 МСК. Клиника Фомина, Москва, Мичуринский проспект, д. 15А. Вместимость — 125 участников.' },
+    online: { price: '500 ₽', copy: 'Онлайн-доступ — 500 ₽. 11 декабря, 09:00–18:00 МСК. Посещение площадки и кадавер-курс не включены. Платформа и порядок подключения будут опубликованы до открытия продаж.' }
+  };
+  const paymentUrl = () => {
+    const value = window.POCUS_PAYMENTS?.[ticketSelect?.value || 'onsite'];
+    if (!value) return null;
+    try {
+      const url = new URL(value);
+      return url.protocol === 'https:' && (url.hostname === 'robokassa.ru' || url.hostname.endsWith('.robokassa.ru') || url.hostname === 'robokassa.com' || url.hostname.endsWith('.robokassa.com')) ? url.href : null;
+    } catch { return null; }
+  };
+  const updateTicket = () => {
+    const ticket = tickets[ticketSelect?.value] || tickets.onsite;
+    if (modalCopy) modalCopy.textContent = ticket.copy;
+    if (paymentButton) {
+      paymentButton.disabled = !offerConsent?.checked || !paymentUrl();
+      paymentButton.textContent = `Оплатить ${ticket.price}`;
+    }
+    if (paymentStatus) paymentStatus.textContent = paymentUrl() ? 'Оплата на защищённой странице Robokassa.' : 'Продажи этого формата пока не открыты.';
+  };
   let lastFocused = null;
 
   const closeMenu = () => {
@@ -23,13 +45,13 @@
   });
   nav?.querySelectorAll('a').forEach((link) => link.addEventListener('click', closeMenu));
 
-  const openModal = (copy) => {
+  const openModal = (type) => {
     if (!modal) return;
     lastFocused = document.activeElement;
-    if (copy && modalCopy) modalCopy.textContent = copy;
+    if (ticketSelect) ticketSelect.value = tickets[type] ? type : 'onsite';
     if (offerConsent) offerConsent.checked = false;
     if (paymentButton) paymentButton.disabled = true;
-    if (paymentStatus) paymentStatus.textContent = 'Ссылка на оплату будет добавлена после подключения платёжной системы.';
+    updateTicket();
     modal.hidden = false;
     document.body.classList.add('modal-open');
     requestAnimationFrame(() => modalCard?.focus());
@@ -43,16 +65,19 @@
   };
 
   document.querySelectorAll('.js-open-ticket').forEach((button) => button.addEventListener('click', () => {
-    openModal('Мы подключаем безопасную оплату и выпуск именного электронного билета. Цена уже зафиксирована — 1 000 ₽.');
+    openModal(button.dataset.ticketType || 'onsite');
   }));
 
-  offerConsent?.addEventListener('change', () => {
-    if (paymentButton) paymentButton.disabled = !offerConsent.checked;
+  offerConsent?.addEventListener('change', updateTicket);
+  ticketSelect?.addEventListener('change', () => {
+    if (offerConsent) offerConsent.checked = false;
+    updateTicket();
   });
   purchaseForm?.addEventListener('submit', (event) => {
     event.preventDefault();
-    if (!offerConsent?.checked) return;
-    if (paymentStatus) paymentStatus.textContent = 'Согласие принято. Ссылка на оплату будет добавлена после подключения платёжной системы.';
+    if (!offerConsent?.checked || !purchaseForm.reportValidity()) return;
+    const url = paymentUrl();
+    if (url) window.location.assign(url);
   });
 
   document.querySelectorAll('.js-close-modal').forEach((button) => button.addEventListener('click', closeModal));
