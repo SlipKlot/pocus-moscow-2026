@@ -9,13 +9,14 @@
   const offerConsent = modal?.querySelector('[data-offer-consent]');
   const paymentButton = modal?.querySelector('[data-payment-button]');
   const paymentStatus = modal?.querySelector('[data-payment-status]');
-  const ticketSelect = modal?.querySelector('[data-ticket-select]');
+  const modalTitle = modal?.querySelector('#modal-title');
+  let activeTicketType = 'onsite';
   const tickets = {
     onsite: { price: '1 000 ₽', copy: 'Очное участие — 1 000 ₽. 11 декабря, 09:00–18:00 МСК. Клиника Фомина, Москва, Мичуринский проспект, д. 15А. Вместимость — 125 участников.' },
     online: { price: '500 ₽', copy: 'Онлайн-доступ — 500 ₽. 11 декабря, 09:00–18:00 МСК. Посещение площадки и кадавер-курс не включены. Платформа и порядок подключения будут опубликованы до открытия продаж.' }
   };
   const paymentUrl = () => {
-    const value = window.POCUS_PAYMENTS?.[ticketSelect?.value || 'onsite'];
+    const value = window.POCUS_PAYMENTS?.[activeTicketType];
     if (!value) return null;
     try {
       const url = new URL(value);
@@ -23,7 +24,8 @@
     } catch { return null; }
   };
   const updateTicket = () => {
-    const ticket = tickets[ticketSelect?.value] || tickets.onsite;
+    const ticket = tickets[activeTicketType];
+    if (modalTitle) modalTitle.textContent = activeTicketType === 'online' ? 'Онлайн-доступ' : 'Очное участие';
     if (modalCopy) modalCopy.textContent = ticket.copy;
     if (paymentButton) {
       paymentButton.disabled = !offerConsent?.checked || !paymentUrl();
@@ -48,7 +50,7 @@
   const openModal = (type) => {
     if (!modal) return;
     lastFocused = document.activeElement;
-    if (ticketSelect) ticketSelect.value = tickets[type] ? type : 'onsite';
+    activeTicketType = type === 'online' ? 'online' : 'onsite';
     if (offerConsent) offerConsent.checked = false;
     if (paymentButton) paymentButton.disabled = true;
     updateTicket();
@@ -69,10 +71,6 @@
   }));
 
   offerConsent?.addEventListener('change', updateTicket);
-  ticketSelect?.addEventListener('change', () => {
-    if (offerConsent) offerConsent.checked = false;
-    updateTicket();
-  });
   purchaseForm?.addEventListener('submit', (event) => {
     event.preventDefault();
     if (!offerConsent?.checked || !purchaseForm.reportValidity()) return;
