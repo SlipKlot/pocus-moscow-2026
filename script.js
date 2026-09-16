@@ -20,7 +20,8 @@
     if (!value) return null;
     try {
       const url = new URL(value);
-      return url.protocol === 'https:' && (url.hostname === 'robokassa.ru' || url.hostname.endsWith('.robokassa.ru') || url.hostname === 'robokassa.com' || url.hostname.endsWith('.robokassa.com')) ? url.href : null;
+      const expectedOrder = activeTicketType === 'online' ? '#order:Онлайн участие=500' : '#order:Очное участие=1000';
+      return url.origin === 'https://shoulderacademy.ru' && url.pathname === '/' && !url.search && decodeURIComponent(url.hash) === expectedOrder ? url.href : null;
     } catch { return null; }
   };
   const updateTicket = () => {
@@ -31,7 +32,7 @@
       paymentButton.disabled = !offerConsent?.checked || !paymentUrl();
       paymentButton.textContent = `Оплатить ${ticket.price}`;
     }
-    if (paymentStatus) paymentStatus.textContent = paymentUrl() ? 'Оплата на защищённой странице Robokassa.' : 'Продажи этого формата пока не открыты.';
+    if (paymentStatus) paymentStatus.textContent = paymentUrl() ? 'Вы перейдёте к оформлению заказа на shoulderacademy.ru.' : 'Продажи этого формата пока не открыты.';
   };
   let lastFocused = null;
 
