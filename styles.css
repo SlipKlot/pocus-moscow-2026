@@ -135,7 +135,11 @@ em { color: var(--gold-light); font-family: Georgia, "Times New Roman", serif; f
 .section-heading p { margin: 0; color: #657081; }
 .program-section em { color: #4776a9; }
 .agenda { border-top: 1px solid rgba(7,17,31,.22); }
-.agenda details { border-bottom: 1px solid rgba(7,17,31,.22); }
+.agenda details, .agenda-static { border-bottom: 1px solid rgba(7,17,31,.22); }
+.agenda-static { display: grid; grid-template-columns: 180px 1fr 32px; gap: 24px; align-items: center; padding: 28px 0; }
+.agenda-static time { font-size: 14px; color: #5b6675; font-variant-numeric: tabular-nums; }
+.agenda-static span { font-size: 22px; font-weight: 750; }
+.agenda-static small { display: block; margin-bottom: 5px; color: #94713d; font-size: 10px; text-transform: uppercase; letter-spacing: .16em; }
 .agenda summary { list-style: none; display: grid; grid-template-columns: 180px 1fr 32px; gap: 24px; align-items: center; padding: 28px 0; cursor: pointer; }
 .agenda summary::-webkit-details-marker { display: none; }
 .agenda summary time { font-size: 14px; color: #5b6675; font-variant-numeric: tabular-nums; }
@@ -327,6 +331,8 @@ body.modal-open { overflow: hidden; }
   .principles p { grid-column: 2; }
   .section-heading { margin-bottom: 45px; }
   .agenda summary { grid-template-columns: 1fr 24px; gap: 14px; }
+  .agenda-static { grid-template-columns: 1fr; gap: 14px; }
+  .agenda-static span { font-size: 18px; }
   .agenda summary time { grid-column: 1 / -1; }
   .agenda summary span { font-size: 18px; }
   .agenda-body { padding: 0 0 22px; font-size: 14px; }
